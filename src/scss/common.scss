@@ -1,0 +1,15 @@
+.swiper{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	min-height: 10.625rem;
+	background: lightpink;
+	.swiper-wrapper{
+		position:absolute;
+		height: 100%;
+		.swiper-item{
+			float: left;
+		}
+	}
+
+}

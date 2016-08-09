@@ -1,0 +1,28 @@
+{
+  "name": "betterwood",
+  "version": "1.0.0",
+  "description": "mobile hotel booking",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "object",
+    "requirejs",
+    "html5",
+    "css3",
+    "mobile",
+    "template"
+  ],
+  "author": "Jacky",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sass": "^2.3.2"
+  }
+}
