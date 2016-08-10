@@ -10,5 +10,9 @@ ul,li{
 }
 input{
 	-webkit-tap-high-light: rgba(0,0,0,0);
-
+	border: none;
+	outline: none;
+	color: #333;
+	font: .8rem/1 'microsoft yahei';
+	-webkit-appearance: none;
 }

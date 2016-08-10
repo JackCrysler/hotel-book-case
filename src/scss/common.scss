@@ -1,15 +1,59 @@
-.swiper{
-	position: relative;
+.swiper-container {
 	width: 100%;
-	overflow: hidden;
-	min-height: 10.625rem;
-	background: lightpink;
-	.swiper-wrapper{
-		position:absolute;
-		height: 100%;
-		.swiper-item{
-			float: left;
-		}
+	height: 100%;
+}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+$baseColor: #24AEF2;
+$backColor: #f5f6f5;
+$borderColor: #f4f4f4;
+@mixin right-arrow($w:10px, $h:10px, $color:$baseColor,$right:0,$top:0){
+	position: relative;
+	&:after{
+		content: '';
+		position: absolute;
+		width: $w;
+		height:$h;
+		border: 1px solid #ffffff;
+		border-right-color: $color;
+		border-bottom-color: $color;
+		transform: rotate(-45deg);
+		right: $right;
+		top: $top;
+	}
+
+}
+
+@mixin circle($w:10px, $h:10px, $color:$baseColor,$left:0,$top:0){
+	position: relative;
+	&:before{
+		content: '';
+		position: absolute;
+		width: $w;
+		height:$h;
+		background: $color;
+		transform: rotate(-45deg);
+		left: $left;
+		top: $top;
+		border-radius:50%;
 	}
 
 }

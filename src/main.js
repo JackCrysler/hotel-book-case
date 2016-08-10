@@ -1,0 +1,3 @@
+require(['js/index'],function(){
+
+});

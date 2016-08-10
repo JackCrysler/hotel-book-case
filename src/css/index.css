@@ -1,0 +1,9 @@
+.box {
+  width: 100%;
+}
+.box p {
+  font: 14px/2 'Microsoft Yahei';
+}
+.box p span {
+  display: block;
+}

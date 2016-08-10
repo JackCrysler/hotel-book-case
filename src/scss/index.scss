@@ -1,5 +1,50 @@
 .container{
 	width: 100%;
 	height: 100%;
-	background: lightpink;
+	background: $backColor;
+
+}
+.banner{
+	height: 130px;
+	.ss1{
+		background: url("../img/fullimage1.jpg") no-repeat center center;
+		background-size: 100% 100%;
+	}
+	.ss2{
+		background: url("../img/fullimage2.jpg") no-repeat center center;
+		background-size: 100% 100%;
+	}
+	.ss3{
+		background: url("../img/fullimage3.jpg") no-repeat center center;
+		background-size: 100% 100%;
+	}
+	.ss4{
+		background: url("../img/fullimage4.jpg") no-repeat center center;
+		background-size: 100% 100%;
+	}
+}
+.index-wrapper{
+	%bb{border-bottom: 1px solid $borderColor}
+	.right-arrow{
+		@include right-arrow($right:1rem,$top:30px)
+	}
+	.circle{
+		@include circle($top:30px,$left:.5rem,$color:$borderColor)
+	}
+	color: #333;
+	background: #ffffff;
+	padding-left: 12px;
+	@extend %bb;
+	.index-item{
+		padding-left: 1.2rem;
+		line-height: 70px;
+		@extend %bb;
+		font-size: .8rem;
+		&:last-child{
+			border: none;
+		}
+	}
+	span{
+		padding: 0 5px;
+	}
 }
