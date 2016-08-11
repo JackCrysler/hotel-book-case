@@ -1,9 +1,4 @@
-.container{
-	width: 100%;
-	height: 100%;
-	background: $backColor;
 
-}
 .banner{
 	height: 130px;
 	.ss1{
@@ -23,8 +18,8 @@
 		background-size: 100% 100%;
 	}
 }
+
 .index-wrapper{
-	%bb{border-bottom: 1px solid $borderColor}
 	.right-arrow{
 		@include right-arrow($right:1rem,$top:30px)
 	}
@@ -40,11 +35,58 @@
 		line-height: 70px;
 		@extend %bb;
 		font-size: .8rem;
+		&:first-child{
+			&:after{
+				right: 85px;
+			}
+		}
 		&:last-child{
 			border: none;
 		}
 	}
+	.location{
+		position: absolute;
+		right: 0;
+		height: 100%;
+		@extend %bl;
+	}
 	span{
 		padding: 0 5px;
+	}
+}
+.city{
+	.left-arrow{
+		@include left-arrow($left:1rem,$top:15px);
+		position: absolute;
+		width: 50px;
+		height: 44px;
+		left: 0;
+	}
+	.cont-title{
+		background: $backColor;
+		height: 24px;
+		line-height: 24px;
+		font-size: .625rem;
+		color: $fontColor;
+		text-indent: .625rem;
+	}
+	ol{
+		li{
+			float: left;
+			width: 10%;
+			text-align: center;
+			line-height: 2;
+			font-size: .75rem;
+		}
+	}
+	.city-detail{
+		@include clearfix;
+		span{
+			float: left;
+			width: 25%;
+			text-align: center;
+			line-height: 2;
+			font-size: .75rem;
+		}
 	}
 }

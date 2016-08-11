@@ -1,3 +1,6 @@
+body{
+	overflow: hidden;
+}
 .swiper-container {
 	width: 100%;
 	height: 100%;
@@ -25,6 +28,9 @@
 $baseColor: #24AEF2;
 $backColor: #f5f6f5;
 $borderColor: #f4f4f4;
+$fontColor: #333;
+
+
 @mixin right-arrow($w:10px, $h:10px, $color:$baseColor,$right:0,$top:0){
 	position: relative;
 	&:after{
@@ -37,6 +43,23 @@ $borderColor: #f4f4f4;
 		border-bottom-color: $color;
 		transform: rotate(-45deg);
 		right: $right;
+		top: $top;
+	}
+
+}
+
+@mixin left-arrow($w:10px, $h:10px, $color:$baseColor,$left:0,$top:0){
+	position: relative;
+	&:after{
+		content: '';
+		position: absolute;
+		width: $w;
+		height:$h;
+		border: 1px solid #ffffff;
+		border-right-color: $color;
+		border-bottom-color: $color;
+		transform: rotate(135deg);
+		left: $left;
 		top: $top;
 	}
 
@@ -56,4 +79,66 @@ $borderColor: #f4f4f4;
 		border-radius:50%;
 	}
 
+}
+
+@mixin plugin($bgColor:#fff){
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: auto;
+	background: $bgColor;
+	z-index: 9999;
+	-webkit-transition: transform .25s ease-in;
+	transition:  transform .25s ease-in;
+}
+@mixin clearfix{
+	&:before,
+	&:after {
+		display: block; //zy
+		content: " "; // 1
+		height: 0; //zy
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+
+%bb{border-bottom: 1px solid $borderColor}
+%bt{border-top: 1px solid $borderColor}
+%bl{border-left: 1px solid $borderColor}
+%b\r{border-right: 1px solid $borderColor}
+.plugin{
+	@include plugin();
+}
+.plugin-hide{
+	-webkit-transform: translate3d(100%,0,0);
+	-moz-transform: translate3d(100%,0,0);
+	-ms-transform: translate3d(100%,0,0);
+	-o-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0);
+}
+.plugin-active{
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);
+	-o-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+.clear{
+	@include clearfix
+}
+.container{
+	width: 100%;
+	height: 100%;
+	background: $backColor;
+	overflow: hidden;
+}
+.header{
+	height: 44px;
+	@extend %bb;
+	text-align: center;
+	line-height: 44px;
 }
