@@ -1,15 +1,11 @@
-body{
-	overflow: hidden;
-}
-.swiper-container {
-	width: 100%;
-	height: 100%;
-}
-.swiper-slide {
-	text-align: center;
-	font-size: 18px;
-	background: #fff;
+//color set
+$baseColor: #24AEF2;
+$backColor: #f5f6f5;
+$borderColor: #f4f4f4;
+$fontColor: #333;
 
+//mixin area collect
+@mixin flexCenter{
 	/* Center slide text vertically */
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -24,12 +20,6 @@ body{
 	-webkit-align-items: center;
 	align-items: center;
 }
-
-$baseColor: #24AEF2;
-$backColor: #f5f6f5;
-$borderColor: #f4f4f4;
-$fontColor: #333;
-
 
 @mixin right-arrow($w:10px, $h:10px, $color:$baseColor,$right:0,$top:0){
 	position: relative;
@@ -87,13 +77,14 @@ $fontColor: #333;
 	height: 100%;
 	top: 0;
 	left: 0;
-	overflow: auto;
+	overflow: hidden;
 	background: $bgColor;
 	z-index: 9999;
 	-webkit-transition: transform .25s ease-in;
 	transition:  transform .25s ease-in;
 }
-@mixin clearfix{
+
+%clearfix{
 	&:before,
 	&:after {
 		display: block; //zy
@@ -105,11 +96,18 @@ $fontColor: #333;
 	}
 }
 
-
+//border set
 %bb{border-bottom: 1px solid $borderColor}
 %bt{border-top: 1px solid $borderColor}
 %bl{border-left: 1px solid $borderColor}
 %b\r{border-right: 1px solid $borderColor}
+
+
+//common stylesheet
+body{
+	overflow: hidden;
+}
+
 .plugin{
 	@include plugin();
 }
@@ -127,8 +125,11 @@ $fontColor: #333;
 	-o-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
+.none{
+	display: none !important;
+}
 .clear{
-	@include clearfix
+	@extend %clearfix;
 }
 .container{
 	width: 100%;
@@ -141,4 +142,5 @@ $fontColor: #333;
 	@extend %bb;
 	text-align: center;
 	line-height: 44px;
+	position: relative;
 }

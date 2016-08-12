@@ -64,6 +64,7 @@ a, input, textarea, select {
 	outline: 0;
 	-webkit-appearance: none;
 	font-size: 100%;
+	border: 1px solid #fefefe;
 }
 $primary-color: #333;
 a {
@@ -75,5 +76,5 @@ a {
 		color: darken($primary-color, 10%);
 	}
 }
-::-webkit-input-placeholder { color:#cacaca; }
+::-webkit-input-placeholder { color:#cacaca;}
 input:-moz-placeholder { color:#cacaca; }

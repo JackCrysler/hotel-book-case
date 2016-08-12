@@ -17,11 +17,20 @@ define([],function(){
         this.bindEvent();
     };
     Plugin.prototype = {
-        show:function(){
+        show:function(targetEle){
+            this.targetEle = targetEle;
             this.pluginDom.className = this.pluginDom.className+' '+this._class.showClass;
+            this.afterShow();
         },
         hide:function() {
             this.pluginDom.className = this.pluginDom.className.replace(this._class.showClass,'');
+            this.afterHide();
+        },
+        afterShow:function(){
+            return false;
+        },
+        afterHide:function(){
+            return false;
         },
         bindEvent:function(){
             var that = this;

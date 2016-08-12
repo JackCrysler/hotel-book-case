@@ -1,4 +1,14 @@
+.swiper-container {
+	width: 100%;
+	height: 100%;
+}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
 
+	@include flexCenter;
+}
 .banner{
 	height: 130px;
 	.ss1{
@@ -31,6 +41,8 @@
 	padding-left: 12px;
 	@extend %bb;
 	.index-item{
+		height: 70px;
+		width: 100%;
 		padding-left: 1.2rem;
 		line-height: 70px;
 		@extend %bb;
@@ -44,6 +56,16 @@
 			border: none;
 		}
 	}
+
+	.local-place{
+		.local-city{
+			width: 50%;
+			height: 100%;
+		}
+		span{
+			float: left;
+		}
+	}
 	.location{
 		position: absolute;
 		right: 0;
@@ -55,6 +77,12 @@
 	}
 }
 .city{
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	.city-content{
+		position: relative;
+	}
 	.left-arrow{
 		@include left-arrow($left:1rem,$top:15px);
 		position: absolute;
@@ -62,13 +90,23 @@
 		height: 44px;
 		left: 0;
 	}
+	.search-area{
+		input{
+			padding: 10px;
+			width: 100%;
+
+		}
+		::-webkit-input-placeholder{
+			font-size: .8rem;
+		}
+	}
 	.cont-title{
 		background: $backColor;
 		height: 24px;
 		line-height: 24px;
-		font-size: .625rem;
+		font-size: .75rem;
 		color: $fontColor;
-		text-indent: .625rem;
+		text-indent: .75rem;
 	}
 	ol{
 		li{
@@ -76,17 +114,45 @@
 			width: 10%;
 			text-align: center;
 			line-height: 2;
-			font-size: .75rem;
+			font-size: .8rem;
 		}
 	}
+	.hot-city{
+		span{
+			float: left;
+			width: 33.33%;
+			text-align: center;
+			line-height: 2;
+			font-size: .8rem;
+		}
+	}
+
 	.city-detail{
-		@include clearfix;
 		span{
 			float: left;
 			width: 25%;
 			text-align: center;
 			line-height: 2;
-			font-size: .75rem;
+			font-size: .8rem;
+		}
+	}
+
+
+}
+.plugin{
+	.search-result{
+		display: none;
+		position: absolute;
+		top: 115px;
+		bottom: 0;
+		background: #ffffff;
+		width: 100%;
+		overflow: auto;
+		span{
+			display: block;
+			width: 100%;line-height: 2;
+			@extend %bb;
+			text-indent: 1rem;
 		}
 	}
 }
