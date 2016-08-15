@@ -174,12 +174,12 @@ input:-moz-placeholder {
   -ms-touch-action: pan-x;
   touch-action: pan-x; }
 
-.clear:before, .clear:after {
+.clear:before, .calendar:before, .clear:after, .calendar:after {
   display: block;
   content: " ";
   height: 0; }
 
-.clear:after {
+.clear:after, .calendar:after {
   clear: both; }
 
 .header, .index-wrapper, .index-wrapper .index-item, .plugin .search-result span {
@@ -230,7 +230,39 @@ body {
   height: 44px;
   text-align: center;
   line-height: 44px;
-  position: relative; }
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background: #ffffff; }
+  .header .left-arrow {
+    position: relative;
+    position: absolute;
+    width: 50px;
+    height: 44px;
+    left: 0; }
+    .header .left-arrow:after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: 1px solid #ffffff;
+      border-right-color: #24AEF2;
+      border-bottom-color: #24AEF2;
+      transform: rotate(135deg);
+      left: 1rem;
+      top: 15px; }
+
+.calendar {
+  padding-top: 45px; }
+  .calendar .cal-item, .calendar .cal-week span {
+    float: left;
+    width: 14.2857%;
+    line-height: 2;
+    font-size: .8rem;
+    text-align: center; }
+    .calendar .cal-item.to-gray, .calendar .cal-week span.to-gray {
+      color: #ccc; }
 
 .swiper-container {
   width: 100%;
@@ -308,6 +340,10 @@ body {
       right: 85px; }
     .index-wrapper .index-item:last-child {
       border: none; }
+    .index-wrapper .index-item span {
+      float: left; }
+    .index-wrapper .index-item .date-in, .index-wrapper .index-item .date-out {
+      width: 70%; }
   .index-wrapper .local-place .local-city {
     width: 50%;
     height: 100%; }
@@ -322,27 +358,12 @@ body {
 
 .city {
   height: 100%;
-  width: 100%;
-  overflow: auto; }
+  width: 100%; }
   .city .city-content {
-    position: relative; }
-  .city .left-arrow {
     position: relative;
-    position: absolute;
-    width: 50px;
-    height: 44px;
-    left: 0; }
-    .city .left-arrow:after {
-      content: '';
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      border: 1px solid #ffffff;
-      border-right-color: #24AEF2;
-      border-bottom-color: #24AEF2;
-      transform: rotate(135deg);
-      left: 1rem;
-      top: 15px; }
+    overflow: auto;
+    height: 100%;
+    padding-top: 45px; }
   .city .search-area input {
     padding: 10px;
     width: 100%; }

@@ -3,6 +3,7 @@ $baseColor: #24AEF2;
 $backColor: #f5f6f5;
 $borderColor: #f4f4f4;
 $fontColor: #333;
+$lightColor: #ccc;
 
 //mixin area collect
 @mixin flexCenter{
@@ -142,5 +143,16 @@ body{
 	@extend %bb;
 	text-align: center;
 	line-height: 44px;
-	position: relative;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	background: #ffffff;
+	.left-arrow{
+		@include left-arrow($left:1rem,$top:15px);
+		position: absolute;
+		width: 50px;
+		height: 44px;
+		left: 0;
+	}
 }

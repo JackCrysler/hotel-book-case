@@ -1,5 +1,6 @@
 define([],function(){
     var Plugin = function(option){
+        if(typeof option == 'undefined') option = {};
         this._class = {
             showClass: option.showClass || 'plugin-active',
             hideClass: option.hideClass || 'plugin-hide'
@@ -14,16 +15,19 @@ define([],function(){
             document.querySelector('.container').appendChild(div);
             this.pluginDom = div;
         }
-        this.bindEvent();
+        this._bindEvent_();
+        this.pluginDom.className = this.pluginDom.className.replace('none','');
     };
     Plugin.prototype = {
-        show:function(targetEle){
-            this.targetEle = targetEle;
+        _show_:function(){
+            if(this.pluginDom.className.indexOf(this._class.showClass)>-1) return;
+
             this.pluginDom.className = this.pluginDom.className+' '+this._class.showClass;
+
             this.afterShow();
         },
-        hide:function() {
-            this.pluginDom.className = this.pluginDom.className.replace(this._class.showClass,'');
+        _hide_:function() {
+            this.pluginDom.className = this.pluginDom.className.replace(this._class.showClass,'').replace(/^(\s+)|(\s+)$/,'');
             this.afterHide();
         },
         afterShow:function(){
@@ -32,12 +36,12 @@ define([],function(){
         afterHide:function(){
             return false;
         },
-        bindEvent:function(){
+        _bindEvent_:function(){
             var that = this;
             this.pluginDom.addEventListener('click',function(e){
                 var target = e.target || e.srcElement;
                 if(target.className.indexOf('back')>-1){
-                    that.hide();
+                    that._hide_();
                 }
             },false)
         }

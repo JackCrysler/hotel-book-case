@@ -1,10 +1,11 @@
 require.config({
     paths:{
         'jquery':'lib/jquery',
-        'swiper':'lib/swiper'
+        'swiper':'lib/swiper',
+        'fastclick':'lib/fastclick'
     }
 });
 
-require(['js/index'],function(){
-
+require(['fastclick','js/index'],function(FastClick,index){
+    FastClick.attach(document.body,{});
 });

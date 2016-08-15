@@ -25,24 +25,25 @@ define(['jquery','js/plugin','data/citydata'],function($,plugin,cities){
         var allCity = this.allCity = cities.cityList;
         var obj = {};
         var alphabet = [];
+        var tmp =null;
         allCity.forEach(function(v,i){
-            if(!obj[v[1].charAt(0).toUpperCase()]){
-                obj[v[1].charAt(0).toUpperCase()] = [];
-                alphabet.push(v[1].charAt(0).toUpperCase());
+            tmp = v[1].charAt(0).toUpperCase();
+            if(!obj[tmp]){
+                obj[tmp] = [];
+                alphabet.push(tmp);
             }
-            obj[v[1].charAt(0).toUpperCase()].push(v);
+            obj[tmp].push(v);
 
         });
-        this.pluginDom.innerHTML = this.tpl;
         this.obj = obj;
         this.alphabet = alphabet.sort();
-        this.init();
     };
-    City.prototype = plugin.prototype;
+    City.prototype = new plugin();
     City.prototype.init = function(){
+        this.pluginDom.innerHTML = this.tpl;
         this.render();
         this.bindEvt();
-        $(this.pluginDom).removeClass('none');
+        //$(this.pluginDom).removeClass('none');
         //默认展示A开头的城市
         $('.alphabet').find('li[data=A]').click();
     };
@@ -100,6 +101,15 @@ define(['jquery','js/plugin','data/citydata'],function($,plugin,cities){
             str+='<span>'+v[0]+'</span>';
         });
         $('.search-result').html(str);
+    };
+    City.prototype.show = function(targetEle){
+        this.init();
+        this._show_();
+
+        this.targetEle = targetEle;
+    };
+    City.prototype.hide = function(){
+        this._hide_();
     };
     City.prototype.afterShow = function(){
         this.wrapper.scrollTop(0);

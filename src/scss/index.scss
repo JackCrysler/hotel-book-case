@@ -55,6 +55,13 @@
 		&:last-child{
 			border: none;
 		}
+		span{
+			float: left;
+
+		}
+		.date-in,.date-out{
+			width: 70%;
+		}
 	}
 
 	.local-place{
@@ -79,16 +86,11 @@
 .city{
 	height: 100%;
 	width: 100%;
-	overflow: auto;
 	.city-content{
 		position: relative;
-	}
-	.left-arrow{
-		@include left-arrow($left:1rem,$top:15px);
-		position: absolute;
-		width: 50px;
-		height: 44px;
-		left: 0;
+		overflow: auto;
+		height: 100%;
+		padding-top: 45px;
 	}
 	.search-area{
 		input{

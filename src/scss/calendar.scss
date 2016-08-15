@@ -1,0 +1,14 @@
+.calendar{
+  @extend %clearfix;
+  padding-top: 45px;
+  .cal-item,.cal-week span{
+    float: left;
+    width: 14.2857%;
+    line-height: 2;
+    font-size: .8rem;
+    text-align: center;
+    &.to-gray{
+      color: $lightColor;
+    }
+  }
+}
