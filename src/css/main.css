@@ -44,7 +44,8 @@ html, body {
   width: 100%;
   color: #333;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%; }
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased; }
 
 body {
   position: relative;
@@ -254,7 +255,16 @@ body {
       top: 15px; }
 
 .calendar {
-  padding-top: 45px; }
+  padding-top: 45px;
+  height: 100%;
+  overflow: auto; }
+  .calendar .calendar-date {
+    margin-top: 20px; }
+  .calendar .ym {
+    text-align: center;
+    font-size: .9rem;
+    color: #000;
+    font-family: sans-serif; }
   .calendar .cal-item, .calendar .cal-week span {
     float: left;
     width: 14.2857%;
@@ -355,6 +365,31 @@ body {
     height: 100%; }
   .index-wrapper span {
     padding: 0 5px; }
+
+.search-btn {
+  background: #24AEF2;
+  color: #ffffff;
+  text-align: center;
+  line-height: 45px;
+  margin-top: 1rem; }
+  .search-btn span {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: #24AEF2;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 5px; }
+    .search-btn span:after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 2px;
+      background: #fff;
+      right: -4px;
+      bottom: -2px;
+      transform: rotate(45deg); }
 
 .city {
   height: 100%;

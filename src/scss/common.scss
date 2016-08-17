@@ -85,6 +85,29 @@ $lightColor: #ccc;
 	transition:  transform .25s ease-in;
 }
 
+//search button icon
+@mixin search-icon($color:#fff,$bg:$baseColor){
+	border-radius: 50%;
+	border: 2px solid $color;
+	background: $bg;
+	position: relative;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	margin-right: 5px;
+	&:after{
+		content: '';
+		position: absolute;
+		width: 6px;
+		height: 2px;
+		background: #fff;
+		right: -4px;
+		bottom: -2px;
+		transform: rotate(45deg);
+	}
+}
+
+
 %clearfix{
 	&:before,
 	&:after {

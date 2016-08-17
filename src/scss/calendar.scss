@@ -1,6 +1,18 @@
 .calendar{
   @extend %clearfix;
   padding-top: 45px;
+  height: 100%;
+  overflow: auto;
+
+  .calendar-date{
+    margin-top: 20px;
+  }
+  .ym{
+    text-align: center;
+    font-size: .9rem;
+    color: #000;
+    font-family: sans-serif;
+  }
   .cal-item,.cal-week span{
     float: left;
     width: 14.2857%;

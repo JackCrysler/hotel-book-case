@@ -83,6 +83,16 @@
 		padding: 0 5px;
 	}
 }
+.search-btn{
+	background: $baseColor;
+	color: #ffffff;
+	text-align: center;
+	line-height: 45px;
+	margin-top: 1rem;
+	span{
+		@include search-icon();
+	}
+}
 .city{
 	height: 100%;
 	width: 100%;
