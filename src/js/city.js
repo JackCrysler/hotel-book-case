@@ -43,7 +43,7 @@ define(['jquery','js/plugin','data/citydata'],function($,plugin,cities){
         this.pluginDom.innerHTML = this.tpl;
         this.render();
         this.bindEvt();
-        //$(this.pluginDom).removeClass('none');
+
         //默认展示A开头的城市
         $('.alphabet').find('li[data=A]').click();
     };

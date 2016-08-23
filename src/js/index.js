@@ -1,4 +1,5 @@
 define(['jquery','swiper','js/city','js/calendar'],function($,swiper,city,calendar){
+    if(window.location.href.indexOf('index.html')==-1) return;
     //查看历史记录，是否存在搜索记录，如果存在就给页面默认展示上次的搜索记录
     var searchHistory = localStorage.getItem('search-history');
     if(searchHistory){
@@ -12,17 +13,17 @@ define(['jquery','swiper','js/city','js/calendar'],function($,swiper,city,calend
         $('.date-out').text(cur.getFullYear()+'-'+(cur.getMonth()+1)+'-'+(cur.getDate()+2))
     }
 
+    //调用idangerou.s swiper 首页轮播
     new swiper('.swiper-container',{
         loop:true,
         autoplay:4000
     });
-
-
-    $('.local-city').on('click',function(){
+    //选择城市区域绑定事件
+    var page = $('#index');
+    //page.find('.local-city');
+    $('.local-city', page).on('click',function(){
         city.show($(this));
     });
-
-
 
 
 
@@ -64,7 +65,7 @@ define(['jquery','swiper','js/city','js/calendar'],function($,swiper,city,calend
 
             var url = 'list.html?'+'city='+city+'&indate='+inDate+'&outdate='+outDate
 
-            window.location.href = url;
+            window.location.href = encodeURI(url);
         }
     })
 

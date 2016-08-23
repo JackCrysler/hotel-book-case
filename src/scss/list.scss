@@ -1,0 +1,163 @@
+#list{
+  font-size: .8rem;
+  .right-arrow{
+    @include right-arrow($bColor:$backColor,$w:8px,$h:8px,$right: 10px,$top: 10px);
+    color: $baseColor;
+  }
+  .choose-date{
+    position: absolute;
+    top: 45px;
+    height: 30px;
+    line-height: 30px;
+    @include flex;
+    width: 100%;
+    span{
+      text-align: center;
+      &:nth-of-type(1){
+        @include flexTo(38)
+      }
+      &:nth-of-type(2){
+        @include flexTo(38)
+      }
+      &:nth-of-type(3){
+        @include flexTo(24)
+      }
+    }
+  }
+  .hotel-lists{
+    position: absolute;
+    top: 75px;
+    bottom: 45px;
+    width: 100%;
+    background: #ffffff;
+    overflow: auto;
+
+    $orange: #ffa83b;
+    dl{
+      padding: 12px 10px;
+      @extend %bb;
+      @include flex;
+    }
+    dt,dd{
+
+    }
+    dt{
+      width: 70px;
+      height: 70px;
+      margin: 3px 7px 0 0;
+    }
+    dd{
+      line-height: 1.4;
+      font-size: .75rem;
+      @include flexTo(1);
+    }
+    .hotel-name{
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    .hotel-range{
+      color: $orange;
+      em{
+        float: left;
+        margin-right: 5px;
+      }
+      .promotion{
+        border-radius: 2px;
+        font-size: .6rem;
+        padding: 2px 4px;
+        color: #ffffff;
+        display: inline-block;
+        transform: scale(.9);
+      }
+      .orange{
+        background: $orange;
+      }
+      .blue{
+        background: #6487f2;
+      }
+      .red{
+        background: #ee5d51;
+      }
+    }
+    .hotel-star,.hotel-location{
+      color: #999;
+      font-size: .6rem;
+    }
+    .hotel-price{
+      font: 1rem/1 'microsoft yahei';
+      sub{
+        vertical-align: middle;
+        font-size: .6rem;
+        color: #999;
+      }
+    }
+
+
+  }
+  .footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 45px;
+    border-top: 1px solid $baseColor;
+    z-index: 99999;
+    background: #ffffff;
+    span{
+      text-align: center;
+      line-height: 44px;
+      text-indent: -12px;
+      float: left;
+      width: 25%;
+      font-size: .8rem;
+      border-right: 1px solid $lightColor;
+      &:last-child{
+        border: none;
+      }
+
+      @include up-arrow($w:5px,$h:5px,$color:$dimColor,$top:20px,$right:18px);
+    }
+    span.high{
+      color: $baseColor;
+      border-top: 1px solid $baseColor;
+      &:after{
+        border-right-color: $baseColor;
+        border-bottom-color: $baseColor;
+      }
+    }
+  }
+  .screen{
+    position: absolute;
+    bottom: 45px;
+    height: 240px;
+    width: 100%;
+    background: #ffffff;
+    display: none;
+
+    z-index: 99999;
+    .checkbox{
+
+      width: 45px;
+      height: 44px;
+      @include checkbox;
+    }
+    .checked{
+      @include checked;
+    }
+    .screen-wrapper{
+
+      width: 400%;
+      height: 100%;
+    }
+    .screen-child{
+      float: left;
+      height: 100%;
+      width: 25%;
+      overflow: auto;
+      p{
+        line-height: 45px;
+        text-indent: 1rem;
+        @extend %bb;
+      }
+    }
+  }
+}

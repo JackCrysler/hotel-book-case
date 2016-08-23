@@ -2,9 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="1409D WEB-DEV" />
+    <meta name="description" content="1409D on the way of learning WEB" />
     <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+    <div class="container" id="list">
+        <!--头部-->
+        <div class="header"><em class="left-arrow back"></em><span>366间酒店</span></div>
+        <!--重新选择日期-->
+        <div class="choose-date">
+            <span class="in-date">入住：8月20日</span><span class="out-date">离店：8月24日</span><span class="right-arrow">修改</span>
+        </div>
+        <!--酒店列表-->
+        <div class="hotel-lists">
 
+            <!--<dl class="clear">
+                <dt><img src="../img/1.jpg" alt=""></dt>
+                <dd>
+                    <p class="hotel-name">北京和颐酒店</p>
+                    <p class="hotel-range clear">
+                        <span class="left">
+                            <em>3.6分</em>
+                            <em class="promotion orange">礼</em>
+                            <em class="promotion blue">促</em>
+                            <em class="promotion red">返</em>
+                        </span>
+                        <span class="right hotel-price">￥200<sub>起</sub></span>
+                    </p>
+                    <p class="hotel-star">
+                        <span>三星级</span>
+                    </p>
+                    <p class="hotel-location clear">
+                        <span class="left">北京市海淀区</span><span class="right">0.8KM</span>
+                    </p>
+                </dd>
+            </dl>-->
+        </div>
+        <!--筛选导航-->
+        <div class="footer">
+            <span>排序</span><span>价格</span><span>品牌</span><span>星级</span>
+        </div>
+        <div class="screen">
+            <div class="screen-wrapper">
+                <div class="screen-child distance">
+                    <p><span>由远到近</span><span class="right checkbox"></span></p>
+                    <p><span>由近到远</span><span class="right checkbox"></span></p>
+                </div>
+                <div class="screen-child price">
+                    <p><span class="no-limit">不限</span><span class="right checkbox checked"></span></p>
+                    <p><span>100以下</span><span class="right checkbox"></span></p>
+                    <p><span>100-200</span><span class="right checkbox"></span></p>
+                    <p><span>200-300</span><span class="right checkbox"></span></p>
+                    <p><span>300-400</span><span class="right checkbox"></span></p>
+                    <p><span>400-500</span><span class="right checkbox"></span></p>
+                    <p><span>500以上</span><span class="right checkbox"></span></p>
+                </div>
+                <div class="screen-child brand">
+                    <p><span class="no-limit">不限</span><span class="right checkbox checked"></span></p>
+                    <p><span>汉庭酒店</span><span class="right checkbox"></span></p>
+                    <p><span>如家酒店</span><span class="right checkbox"></span></p>
+                    <p><span>和颐酒店</span><span class="right checkbox"></span></p>
+                </div>
+                <div class="screen-child range">
+                    <p stars="0" ><span class="no-limit">不限</span><span class="right checkbox checked"></span></p>
+                    <p stars="二星"><span>二星以下</span><span class="right checkbox"></span></p>
+                    <p stars="经济"><span>经济型</span><span class="right checkbox"></span></p>
+                    <p stars="三星"><span>三星级</span><span class="right checkbox"></span></p>
+                    <p stars="四星"><span>四星级</span><span class="right checkbox"></span></p>
+                    <p stars="五星"><span>五星级</span><span class="right checkbox"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../lib/require.js" data-main="../main"></script>
 </body>
 </html>

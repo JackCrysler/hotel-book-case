@@ -1,7 +1,7 @@
 define(['jquery','js/util','js/plugin'],function($,util,plugin){
     var Calendar = function(){
         this.initDate = new Date();
-        this.allMonthCount = 12;
+        this.allMonthCount = 6;
         plugin.call(this,'');
         this.tpl = '<div class="calendar"><div class="header"><em class="left-arrow back"></em><span>选择日期</span></div>months</div>';
     };

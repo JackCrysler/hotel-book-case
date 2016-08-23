@@ -4,14 +4,21 @@ $backColor: #f5f6f5;
 $borderColor: #f4f4f4;
 $fontColor: #333;
 $lightColor: #ccc;
-
+$dimColor: #999;
 //mixin area collect
-@mixin flexCenter{
-	/* Center slide text vertically */
+@mixin flex{
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+}
+@mixin flexTo($c:1){
+	flex: $c;
+	-webkit-box-flex: $c;
+	-ms-flex: $c;
+}
+@mixin flexCenter{
+	/* Center slide text vertically */
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	-webkit-justify-content: center;
@@ -21,39 +28,55 @@ $lightColor: #ccc;
 	-webkit-align-items: center;
 	align-items: center;
 }
+%common{
+	content: '';
+	position: absolute;
 
-@mixin right-arrow($w:10px, $h:10px, $color:$baseColor,$right:0,$top:0){
+}
+@mixin right-arrow($bColor:#fff,$w:10px, $h:10px, $color:$baseColor,$right:0,$top:0){
 	position: relative;
 	&:after{
-		content: '';
-		position: absolute;
+		@extend %common;
 		width: $w;
 		height:$h;
-		border: 1px solid #ffffff;
+		border: 1px solid $bColor;
 		border-right-color: $color;
 		border-bottom-color: $color;
-		transform: rotate(-45deg);
 		right: $right;
 		top: $top;
+		transform: rotate(-45deg);
 	}
 
 }
 
-@mixin left-arrow($w:10px, $h:10px, $color:$baseColor,$left:0,$top:0){
+@mixin left-arrow($bColor:#fff,$w:10px, $h:10px, $color:$baseColor,$left:0,$top:0,$left:0,$top:0){
 	position: relative;
 	&:after{
-		content: '';
-		position: absolute;
 		width: $w;
 		height:$h;
-		border: 1px solid #ffffff;
+		border: 1px solid $bColor;
 		border-right-color: $color;
 		border-bottom-color: $color;
-		transform: rotate(135deg);
-		left: $left;
+		right: $left;
 		top: $top;
+		@extend %common;
+		transform: rotate(135deg);
 	}
+}
 
+@mixin up-arrow($bColor:#fff,$w:10px, $h:10px, $color:$baseColor,$right:0,$top:0){
+	position: relative;
+	&:after{
+		width: $w;
+		height:$h;
+		border: 1px solid $bColor;
+		border-right-color: $color;
+		border-bottom-color: $color;
+		right: $right;
+		top: $top;
+		@extend %common;
+		transform: rotate(-135deg);
+	}
 }
 
 @mixin circle($w:10px, $h:10px, $color:$baseColor,$left:0,$top:0){
@@ -107,6 +130,38 @@ $lightColor: #ccc;
 	}
 }
 
+//checkbox style
+@mixin checkbox(){
+	position: relative;
+	&:after{
+		content: '';
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		border: 2px solid $baseColor;
+		left: 50%;
+		top: 50%;
+		margin: -5px 0 0 -5px;
+	}
+	&:before{
+		content: '';
+		position: absolute;
+		width: 7px;
+		height: 3px;
+		border-bottom: 2px solid $baseColor;
+		border-left: 2px solid $baseColor;
+		transform: rotate(-45deg);
+		visibility: hidden;
+		left: 50%;
+		top: 50%;
+		margin: -2px 0 0 -3px;
+	}
+}
+@mixin checked{
+	&:before{
+		visibility: visible;
+	}
+}
 
 %clearfix{
 	&:before,
@@ -130,6 +185,54 @@ $lightColor: #ccc;
 //common stylesheet
 body{
 	overflow: hidden;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.mask-layer{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 9998;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,.7);
+}
+.loading{
+	position: absolute;
+	z-index: 9999;
+	width: 70px;
+	height: 70px;
+	left: 50%;
+	top: 50%;
+	margin: -35px 0 0 -35px;
+	animation: loading 1.4s infinite;
+	-webkit-animation:loading 1.4s infinite linear;
+
+	img{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+@keyframes loading {
+	0% {
+		transform: rotate(0deg)
+	}
+	100% {
+		transform: rotate(360deg)
+	}
+}
+@-webkit-keyframes loading {
+	0% {
+		transform: rotate(0deg)
+	}
+	100% {
+		transform: rotate(360deg)
+	}
 }
 
 .plugin{
@@ -160,6 +263,7 @@ body{
 	height: 100%;
 	background: $backColor;
 	overflow: hidden;
+	position: relative;
 }
 .header{
 	height: 44px;
