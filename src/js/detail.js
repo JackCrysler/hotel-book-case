@@ -20,7 +20,8 @@ define(['js/iSwiper'],function(sw){
     });
 
 
-    $('.nav-dots').on('click','span',function(){
+    $('.nav-dots').on('click','span',function(e){
+        e.stopPropagation();
         $(this).addClass('active').siblings().removeClass('active');
         iswiper.moveTo($(this).index());
     })
