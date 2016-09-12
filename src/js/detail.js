@@ -7,9 +7,12 @@ define(['js/iSwiper'],function(sw){
 
         if(typeof iswiper == 'undefined'){
 
-            iswiper = new sw('.iSwiper',function(idx){
-                $('.nav-dots').find('span').removeClass('active')
-                    .eq(idx).addClass('active');
+            iswiper = new sw('.iSwiper',{
+                callback:function(idx){
+                    $('.nav-dots').find('span').removeClass('active')
+                        .eq(idx).addClass('active');
+                },
+                navWrapClass: '.self-dots'
             });
         }
     });

@@ -1,6 +1,6 @@
 define(['jquery','js/util','js/plugin'],function($,util,plugin){
-    var Calendar = function(){
-        this.initDate = new Date();
+    var Calendar = function(options){
+        this.initDate = new Date(options.startDate);
         this.allMonthCount = 6;
         plugin.call(this,'');
         this.tpl = '<div class="calendar"><div class="header"><em class="left-arrow back"></em><span>选择日期</span></div>months</div>';
@@ -37,7 +37,6 @@ define(['jquery','js/util','js/plugin'],function($,util,plugin){
         var resetDate = this.resetDate = new Date(y,m,1);
         this.resetYear = resetDate.getFullYear();
         this.resetMonth = resetDate.getMonth();
-
     };
     Calendar.prototype.getStartIndex = function(){
         return new Date(this.resetYear,this.resetMonth,1).getDay();
@@ -69,15 +68,13 @@ define(['jquery','js/util','js/plugin'],function($,util,plugin){
                 }else{
                     str += '<span class="cal-item">'+ day +'</span>';
                 }
-
             }
         }
         str = str.replace('{YM}',this.resetYear+'-'+(this.resetMonth+1)).replace('{content}',str);
 
         baseStr = baseStr.replace('{YM}',this.resetYear+'-'+(this.resetMonth+1)).replace('{content}',str);
+
         return baseStr;
-
-
     };
     Calendar.prototype.renderAll = function(){
         var str = '';
@@ -116,5 +113,5 @@ define(['jquery','js/util','js/plugin'],function($,util,plugin){
     };
 
 
-    return new Calendar();
+    return Calendar;
 });

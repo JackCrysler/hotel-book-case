@@ -1,0 +1,92 @@
+#order{
+  padding-top: 45px;
+  overflow-y: auto;
+  .order-info{
+    background: #ffffff;
+    line-height: 1.375rem;
+    .hotel-info{
+      display: flex;
+      padding: 15px;
+      dt{
+        width: 70px;
+        height: 70px;
+        margin: 5px 10px;
+      }
+      dd{
+        flex: 1;
+        font-size: .875rem;
+        p:last-child{
+          color: $highColor;
+        }
+        span{
+          display: inline-block;
+          padding: 0 4px;
+          border-radius: 2px;
+          color: #ffffff;
+          background: $highColor;
+        }
+
+      }
+      @extend %bb;
+    }
+    .date-info{
+      display: flex;
+      padding: 5px 0;
+      em{
+        width: 1px;
+        background: $backColor;
+      }
+      span{
+        text-align: center;
+        flex:1;
+      }
+    }
+  }
+
+
+  .fill-area{
+
+    .right-arrow{
+      @include right-arrow($top:16px);
+    }
+    .title{
+      color: $dimColor;
+      height: 45px;
+      width: 100%;
+      line-height: 50px;
+      overflow: hidden;
+      background: $backColor;
+      text-indent: 1rem;
+    }
+    .base{
+      background: #ffffff;
+      line-height: 44px;
+      text-indent: .5rem;
+      p:first-child{
+        @extend %bb;
+      }
+      span{
+        padding-right: 25px;
+      }
+      .inputs{
+        padding: 0 10px;
+        width: 100%;
+        label{
+          display: block;
+          width: 100%;
+        }
+        input{
+          float: right;
+          width: 70%;
+          border: none;
+          height: 30px;
+          line-height: 30px;
+          margin-top: 5px;
+          padding-left: 10px;
+        }
+        ::-webkit-input-placeholder { font-size: .75rem}
+        input:-moz-placeholder { font-size: .75rem }
+      }
+    }
+  }
+}

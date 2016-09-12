@@ -1,4 +1,4 @@
-define(['jquery','swiper','js/city','js/calendar'],function($,swiper,city,calendar){
+define(['jquery','swiper','js/city','js/calendar'],function($,swiper,city,Calendar){
     if(window.location.href.indexOf('index.html')==-1) return;
     //查看历史记录，是否存在搜索记录，如果存在就给页面默认展示上次的搜索记录
     var searchHistory = localStorage.getItem('search-history');
@@ -13,6 +13,11 @@ define(['jquery','swiper','js/city','js/calendar'],function($,swiper,city,calend
         $('.date-out').text(cur.getFullYear()+'-'+(cur.getMonth()+1)+'-'+(cur.getDate()+2))
     }
 
+    //
+    var calendar = new Calendar({
+        startDate:new Date()
+    });
+
     //调用idangerou.s swiper 首页轮播
     new swiper('.swiper-container',{
         loop:true,
@@ -25,6 +30,22 @@ define(['jquery','swiper','js/city','js/calendar'],function($,swiper,city,calend
         city.show($(this));
     });
 
+
+    $('.location').on('click',function(){
+        console.log(window.navigator.geolocation);
+        var geo = window.navigator.geolocation;
+        geo.getCurrentPosition(function(data){
+            console.log(data);
+        });
+        $.ajax({
+            url:'http://apis.map.qq.com/ws/location/v1/ip?key=7SFBZ-SLNRP-UTZDY-VMH2X-NQG5T-D3FRF&output=jsonp',
+            type:'get',
+            dataType:'jsonp'
+        })
+        .done(function(data){
+            console.log(data)
+        })
+    });
 
 
     //判断时间是否符合规范

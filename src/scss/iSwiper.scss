@@ -9,6 +9,7 @@
     position: absolute;
     top: 50%;
     transform: translate3d(0,-50%,0);
+    -webkit-transform: translate3d(0,-50%,0);
   }
   .iSwiper-item{
     float: left;
@@ -17,6 +18,20 @@
   }
 
   .tst{
-    transition:transform .3s ease-in-out
+    transition:transform .3s ease-in-out;
+    -webkit-transition:transform .3s ease-in-out;
   }
+
+  .swiper-dot{
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin: 5px;
+    border-radius: 50%;
+    background: lightcyan;
+    &.active{
+      background: lightgreen;
+    }
+  }
+
 }

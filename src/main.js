@@ -7,6 +7,6 @@ require.config({
     }
 });
 
-require(['fastclick','js/index','js/list','js/detail'],function(FastClick,index){
+require(['fastclick','js/index','js/list','js/detail','js/order'],function(FastClick,index){
     FastClick.attach(document.body,{});
 });

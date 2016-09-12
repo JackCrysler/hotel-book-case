@@ -1,0 +1,32 @@
+{
+  "isError": 1,
+  "success": true,
+  "errCode": 103,
+  "data":{
+    "length":3,
+    "personList":[
+      {
+        "name":"张三",
+        "id":"",
+        "gender": "male",
+        "cardNumber":12323123123,
+        "promotion": "80%"
+      },
+      {
+        "name":"李四",
+        "id":"",
+        "gender": "male",
+        "cardNumber":12323123123,
+        "promotion": "90%"
+      },
+      {
+        "name": "小红",
+        "id": "",
+        "gender": "female",
+        "cardNumber": 89898786745,
+        "promotion": "80%",
+        "isVip":""
+      }
+    ]
+  }
+}

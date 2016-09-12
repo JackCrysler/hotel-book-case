@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="1409D WEB-DEV" />
+    <meta name="description" content="1409D on the way of learning WEB" />
+    <title>订单填写页</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<script>
+    var obj = {
+
+    }
+</script>
+
+<div class="container" id="order">
+    <!--头部-->
+    <div class="header"><em class="left-arrow back"></em><span>订单填写</span></div>
+    <div class="order-info">
+        <dl class="hotel-info">
+            <dt><img src="../img/1.jpg" alt=""></dt>
+            <dd>
+                <p>北京王府井希尔顿大酒店</p>
+                <p>标准大床房</p>
+                <p>￥90 <span class="ensure">担保</span></p>
+            </dd>
+        </dl>
+        <div class="date-info">
+            <span>入住 7月8号 </span><em class="vertical-line"></em><span>离店 7月10号</span>
+        </div>
+    </div>
+    <div class="fill-area">
+        <div class="base room-info">
+            <h6 class="title">房间信息</h6>
+            <div class="inputs">
+                <p class="clear room-count"><span class="left">房间数量</span><span class="right-arrow right room-num">1</span></p>
+                <p class="clear room-time"><span class="left">到店时间</span><span class="right-arrow right room-time">19:00</span></p>
+            </div>
+        </div>
+        <div class="base person-info">
+            <h6 class="title">入住人信息</h6>
+            <div class="persons">
+                <div class="inputs">
+                    <p><label>姓名<input type="text" placeholder="每个房间只需填写一个姓名"></label></p>
+                    <p><label>证件<input type="number" placeholder="入住人身份证号/护照号" maxlength="18"></label></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mask-layer none"></div>
+</div>
+<script src="../lib/require.js" data-main="../main"></script>
+</body>
+</html>

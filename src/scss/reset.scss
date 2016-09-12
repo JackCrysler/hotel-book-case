@@ -34,6 +34,7 @@ em, strong, b, i
 h1, h2, h3, h4, h5, h6
 {
 	font-weight:normal;
+	font-size: 100%;
 }
 body, input, button, textarea
 {
@@ -58,6 +59,8 @@ body{
 	position: relative;
 	overflow: hidden;
 	-webkit-overflow-scrolling: touch;
+	-webkit-transform-style:preserve-3d;
+	-webkit-backface-visibility:hidden;
 }
 ul,ol {
 	list-style-type: none;
