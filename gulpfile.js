@@ -7,7 +7,11 @@ var autoprefixer = require('gulp-autoprefixer');
 var minCss = require('gulp-clean-css');
 var rjs = require('gulp-requirejs');
 var uglify = require('gulp-uglify');
+var imagemin = require('gulp-imagemin');
 var rename = require('gulp-rename');
+var clean = require('gulp-clean');
+var rev = require('gulp-rev');
+var revReplace = require('gulp-rev-collector');
 gulp.task('start',['sass'],function() {
 	browsersync.init({
 		server:{baseDir:'./'},
@@ -40,7 +44,7 @@ gulp.task('less',function(){
 
 
 gulp.task('test',['buildjs'],function(){
-	gulp.src('src/css/main.css')
+	return gulp.src('src/css/main.css')
 		.pipe(autoprefixer({
 		browsers: ['last 3 version']
 	}))
@@ -50,7 +54,7 @@ gulp.task('test',['buildjs'],function(){
 });
 
 gulp.task('minjs',function(){
-	rjs({
+	return rjs({
 		baseUrl:'./src',
 		name:'lib/almond',
 		include:['main'],
@@ -66,13 +70,30 @@ gulp.task('minjs',function(){
 	.pipe(gulp.dest('dist/js'))
 });
 gulp.task('mincss',function(){
-	gulp.src('src/css/main.css')
+	return gulp.src('src/css/main.css')
 	.pipe(minCss())
 	.pipe(rename('main.min.css'))
+		.pipe(rev())
 	.pipe(gulp.dest('dist/css'))
+	.pipe(rev.manifest())
+	.pipe(gulp.dest(''))
+});
+gulp.task('rev-replace',function(){
+	return gulp.src(['rev-manifest.json','src/html/*.html'])
+	.pipe(revReplace({
+		replaceReved: true,
+		dirReplacements: {
+			'../../dist/css': '../css/'
+		}
+	}))
+	.pipe(gulp.dest('dist/html'))
 });
 gulp.task('copyimg',function(){
-	gulp.src('src/img/*.[jpg,png,gif]')
+	return gulp.src('src/img/*')
+		.pipe(imagemin())
 	.pipe(gulp.dest('dist/img'))
 });
-gulp.task('build',['minjs','mincss','copyimg']);
+gulp.task('clean',function(){
+	gulp.src('dist/*').pipe(clean())
+});
+gulp.task('build',['rev-replace','minjs','mincss','copyimg']);
