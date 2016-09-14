@@ -1,4 +1,4 @@
-define(['jquery','swiper','js/city','js/calendar'],function($,swiper,city,Calendar){
+define(['jquery','swiper','js/city','js/calendar','js/dialog'],function($,swiper,city,Calendar,Dialog){
     if(window.location.href.indexOf('index.html')==-1) return;
     //查看历史记录，是否存在搜索记录，如果存在就给页面默认展示上次的搜索记录
     var searchHistory = localStorage.getItem('search-history');
@@ -13,10 +13,12 @@ define(['jquery','swiper','js/city','js/calendar'],function($,swiper,city,Calend
         $('.date-out').text(cur.getFullYear()+'-'+(cur.getMonth()+1)+'-'+(cur.getDate()+2))
     }
 
-    //
+    //实例化日历组件
     var calendar = new Calendar({
         startDate:new Date()
     });
+    //实例化dialog组件
+    var dialog = new Dialog();
 
     //调用idangerou.s swiper 首页轮播
     new swiper('.swiper-container',{
@@ -53,7 +55,11 @@ define(['jquery','swiper','js/city','js/calendar'],function($,swiper,city,Calend
         var dateIn = $('.date-in').text();
         var dateOut = $('.date-out').text();
         if((new Date(dateOut) - new Date(dateIn))/(1000*60*60*24)<0){
-            alert('时间不符合')
+            dialog.alert('时间不符合',function(){
+                setTimeout(function(){
+                    $('.date-in').click();
+                },350)
+            })
         }
     }
     $('.local-time').on('click',function(){
